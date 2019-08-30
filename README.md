@@ -1,3 +1,3 @@
 # cs201
 
-This repo is for testing work in VS 2019.
+This repository is a collection of coursework for Computer Science 201.
