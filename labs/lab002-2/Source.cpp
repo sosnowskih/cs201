@@ -1,4 +1,4 @@
-/*lab002
+/*lab002-2
 Henryk Sosnowski
 9/4/2019
 This program asks the user for the month, day, and year of their birthday, then prints it in the mm/dd/yyyy format.
