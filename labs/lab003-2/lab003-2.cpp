@@ -1,4 +1,4 @@
-//Program: lab003-3
+//Program: lab003-2
 //Author: Henryk Sosnowski
 //Date 9/6/2019
 //Description: This program prints a 60x10 box of asterisks using nested while loops.
