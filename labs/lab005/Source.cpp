@@ -1,7 +1,7 @@
 //Program: lab005
 //Author: Henryk Sosnowski
 //Date: 9/13/2019
-//Description: This program asks the user to input the size of a diamond, then prints it to the console.
+//Description: This program displays a menu with various options for emoticons, then prints them based on user input
 
 #include<iostream>
 
