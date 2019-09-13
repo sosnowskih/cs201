@@ -12,13 +12,20 @@ int main(int argc, char** argv)
 	std::cin >> size;
 	std::cout << "\n";
 
+	//Top half of diamond
 	for (int i = 0; i < size; ++i)
 	{
-		for (int i = 0; i < 2 * size - 1; ++i)
+		for (int n = 0; n < size - i; ++n)
+		{
+			std::cout << " ";
+		}
+		for (int n = 0; n < 2 * i - 1; ++n)
 		{
 			std::cout << "#";
 		}
 		std::cout << std::endl;
 	}
+
+	//Bottom half of diamond
 	return 0;
 }
