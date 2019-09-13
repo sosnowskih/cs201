@@ -8,8 +8,19 @@
 int main(int argc, char** argv)
 {
 	int size = 0;
-	std::cout << "Please enter the size of diamond you desire: ";
+	bool not_integer = true;
+
+	std::cout << "Enter the size of diamond you desire: ";
 	std::cin >> size;
+
+	
+	//Checking for input error
+	while (std::cin.fail()) 
+	{
+		std::cout << "Error: Please enter an integer only: ";
+		std::cin.clear();
+		std::cin >> size;
+	}
 	std::cout << "\n";
 
 	//Top half of diamond
