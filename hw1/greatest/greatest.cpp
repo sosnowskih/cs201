@@ -22,6 +22,7 @@ int main(int argc, char** argv)
 	int input = getinput();
 	int greatest = input;
 
+	//repeats input collection until a 0 is entered
 	while (input != 0) 
 	{
 		input = getinput();
@@ -31,6 +32,7 @@ int main(int argc, char** argv)
 		}
 	}
 
+	//checks for presence of positive input
 	if (greatest <= 0)
 	{
 		std::cout << "\nNo positive integers were entered.\n";
