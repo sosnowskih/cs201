@@ -23,6 +23,10 @@ int main(int argc, char** argv)
 	double bx = 0;
 	double by = 0;
 	double bz = 0;
+	double dot = 0;
+	double crossx = 0;
+	double crossy = 0;
+	double crossz = 0;
 
 	std::cout << "This program will calculate the dot and cross products of two vectors, A and B.\n";
 	ax = uinput("A", "x");
@@ -31,6 +35,14 @@ int main(int argc, char** argv)
 	bx = uinput("B", "x");
 	by = uinput("B", "y");
 	bz = uinput("B", "z");
+
+	dot = ax * bx + ay * by + az * bz;
+	crossx = ay * bz - az * by;
+	crossy = az * bx - ax * bz;
+	crossz = ax * by - ay * bx;
+
+	std::cout << "\nA dot B = " << std::setprecision(5) << dot;
+	std::cout << "\nA cross B = " << std::setprecision(5) << "(" << crossx << ", " << crossy << ", " << crossz << ")\n";
 
 	return 0;
 }
