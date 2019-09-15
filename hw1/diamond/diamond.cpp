@@ -12,16 +12,16 @@ int main(int argc, char** argv)
 
 	std::cout << "Enter the size of diamond you desire: ";
 	std::cin >> size;
+	std::cout << std::endl;
 
-	
 	//Checking for input error
-	while (std::cin.fail()) 
+	while (size < 1) 
 	{
-		std::cout << "Error: Please enter an integer only: ";
+		std::cout << "Error: Please enter a positive integer only: ";
 		std::cin.clear();
+		std::cin.ignore();
 		std::cin >> size;
 	}
-	std::cout << "\n";
 
 	//Top half of diamond
 	for (int i = 0; i <= size; ++i)
