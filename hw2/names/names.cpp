@@ -12,6 +12,8 @@ void InputNames(std::vector<std::string>& names);
 
 bool DoesNameExist(const std::string& nameToFind, const std::vector<std::string>& names);
 
+void PrintNames(const std::vector<std::string>& names);
+
 int main(int argc, char** argv)
 {
 	std::vector<std::string> nameList;
@@ -28,6 +30,9 @@ int main(int argc, char** argv)
 	{
 		std::cout << "Name not found.";
 	}
+
+	std::cout << "\n\n";
+	PrintNames(nameList);
 
 	return 0;
 }
@@ -53,4 +58,13 @@ bool DoesNameExist(const std::string& nameToFind, const std::vector<std::string>
 		}
 	}
 	return false;
+}
+
+void PrintNames(const std::vector<std::string>& names)
+{
+	std::cout << "Names: \n";
+	for (int i = 0; i < names.size(); i++)
+	{
+		std::cout << names[i] << std::endl;
+	}
 }
