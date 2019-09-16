@@ -15,6 +15,7 @@ int main(int argc, char** argv)
 		<< "Enter a number of miles: ";
 	std::cin >> miles;
 
+	//Displays singular 'mile' if the user inputs 1
 	if (miles == 1)
 	{
 		plural = "mile";
