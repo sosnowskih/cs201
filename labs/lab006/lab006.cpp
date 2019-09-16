@@ -1,7 +1,7 @@
 //Program: lab006
 //Author: Henryk Sosnowski
 //Date: 9/16/2019
-//Description: 
+//Description: This program contains functions to count the number of characters in a string, display that number as #'s, and re-print the characters in reverse order.
 
 #include<iostream>
 
@@ -28,7 +28,7 @@ void backwardsString(std::string userString)
 	std::cout << std::endl;
 }
 
-void askForString()
+void askForString(void (*f) (std::string))
 {
 	while (true)
 	{
@@ -42,12 +42,13 @@ void askForString()
 			break;
 		}
 
-		backwardsString(inputString);
+		(*f)(inputString);
 	}
 }
 
 int main(int argc, char** argv)
 {
-	askForString();
+
+	askForString(poundLine);
 	return 0;
 }
