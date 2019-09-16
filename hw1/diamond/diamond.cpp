@@ -8,7 +8,6 @@
 int main(int argc, char** argv)
 {
 	int size = 0;
-	bool not_integer = true;
 
 	std::cout << "Enter the size of diamond you desire: ";
 	std::cin >> size;
