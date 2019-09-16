@@ -10,7 +10,16 @@ void printStringLength(std::string userString)
 	std::cout << "'" << userString << "' is " << userString.size() << " characters long.\n";
 }
 
-void requiredFunction()
+void poundLine(std::string userString)
+{
+	for (int n = 0; n < userString.size(); ++n)
+	{
+		std::cout << "#";
+	}
+	std::cout << std::endl;
+}
+
+void askForString()
 {
 	while (true)
 	{
@@ -24,12 +33,12 @@ void requiredFunction()
 			break;
 		}
 
-		printStringLength(inputString);
+		poundLine(inputString);
 	}
 }
 
 int main(int argc, char** argv)
 {
-	requiredFunction();
+	askForString();
 	return 0;
 }
