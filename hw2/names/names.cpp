@@ -14,6 +14,8 @@ bool DoesNameExist(const std::string& nameToFind, const std::vector<std::string>
 
 void PrintNames(const std::vector<std::string>& names);
 
+std::string AlBhed(std::string name);
+
 int main(int argc, char** argv)
 {
 	std::vector<std::string> nameList;
@@ -67,4 +69,17 @@ void PrintNames(const std::vector<std::string>& names)
 	{
 		std::cout << names[i] << std::endl;
 	}
+}
+
+std::string AlBhed(std::string name)
+{
+	for (i = 0; i < name.length - 1; i++)
+	{
+		if(name[i] == "a" || name[i] == "A")
+		{
+			name[i] = "a";
+		}
+	}
+
+	return name;
 }
