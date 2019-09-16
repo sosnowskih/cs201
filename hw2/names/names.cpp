@@ -8,9 +8,18 @@
 #include<string>
 #include<algorithm>
 
+void InputNames(std::vector<std::string>& names);
+
 int main(int argc, char** argv)
 {
-	std::vector<std::string> names;
+	std::vector<std::string> nameList;
+	InputNames(nameList);
+
+	return 0;
+}
+
+void InputNames(std::vector<std::string>& names)
+{	
 	for (int i = 0; i < 3; i++)
 	{
 		std::string name;
@@ -18,6 +27,4 @@ int main(int argc, char** argv)
 		std::getline(std::cin, name);
 		names.push_back(name);
 	}
-
-	return 0;
 }
