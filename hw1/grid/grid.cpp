@@ -37,17 +37,19 @@ int main(int argc, char** argv)
 
 	while (true)
 	{
-		std::cout << "Enter a row (1-9): ";
+		std::cout << "\nEnter a row (1-9): ";
 		std::cin >> y;
 		std::cout << "Enter a column (1-9): ";
 		std::cin >> x;
 
 		grid(x, y);
-		if(x <=0 || y <= 0)
+		if(x < 0 || y < 0)
 		{
 			break;
 		}
 	}
+
+	std::cout << "\nThank you for playing!\n";
 
 	return 0;
 }
