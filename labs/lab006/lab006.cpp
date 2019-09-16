@@ -19,13 +19,22 @@ void poundLine(std::string userString)
 	std::cout << std::endl;
 }
 
+void backwardsString(std::string userString)
+{
+	for (int n = userString.size() - 1; n >= 0; --n)
+	{
+		std::cout << userString[n];
+	}
+	std::cout << std::endl;
+}
+
 void askForString()
 {
 	while (true)
 	{
 		std::string inputString;
 
-		std::cout << "Enter a string to get its length (0 to quit): ";
+		std::cout << "Enter a string (0 to quit): ";
 		std::cin >> inputString;
 
 		if (inputString == "0")
@@ -33,7 +42,7 @@ void askForString()
 			break;
 		}
 
-		poundLine(inputString);
+		backwardsString(inputString);
 	}
 }
 
