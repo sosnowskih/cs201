@@ -10,10 +10,24 @@
 
 void InputNames(std::vector<std::string>& names);
 
+bool DoesNameExist(const std::string& nameToFind, const std::vector<std::string>& names);
+
 int main(int argc, char** argv)
 {
 	std::vector<std::string> nameList;
 	InputNames(nameList);
+
+	std::cout << "\nEnter a name to find: ";
+	std::string searchForName;
+	std::cin >> searchForName;
+	if (DoesNameExist(searchForName, nameList))
+	{
+		std::cout << "Name found!";
+	}
+	else
+	{
+		std::cout << "Name not found.";
+	}
 
 	return 0;
 }
@@ -27,4 +41,16 @@ void InputNames(std::vector<std::string>& names)
 		std::getline(std::cin, name);
 		names.push_back(name);
 	}
+}
+
+bool DoesNameExist(const std::string& nameToFind, const std::vector<std::string>& names)
+{
+	for (int i = 0; i < names.size(); i++)
+	{
+		if (names[i] == nameToFind)
+		{
+			return true;
+		}
+	}
+	return false;
 }
