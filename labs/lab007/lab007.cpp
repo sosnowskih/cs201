@@ -11,9 +11,11 @@ void threeInt();
 
 void varyInt();
 
+void minInt();
+
 int main()
 {
-	varyInt();
+	minInt();
 
 	return 0;
 }
@@ -61,4 +63,36 @@ void varyInt()
 	}
 	std::cout << "Sum = ";
 	putInt(sum, 8);
+	std::cout << std::endl;
+}
+
+void minInt()
+{
+	std::vector<int> userInts;
+	int input = 1;
+	int min = 0;
+	std::cout << "Please enter integers (0 to end): ";
+
+	input = getInt();
+	min = input;
+
+	while (input != 0)
+	{
+		input = getInt();
+		userInts.push_back(input);
+
+		if (input < min && input != 0)
+		{
+			min = input;
+		}
+	}
+
+	for (int n = 0; n < userInts.size() - 1; n++)
+	{
+		putInt(userInts[n], 17);
+		std::cout << std::endl;
+	}
+	std::cout << "Smallest = ";
+	putInt(min, 6);
+	std::cout << std::endl;
 }
