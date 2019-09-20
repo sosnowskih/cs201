@@ -1,7 +1,9 @@
-//Program: names
-//Author: Henryk Sosnowski
-//Date: 9/16/2019
-//Description: 
+/*Program: names
+*Author: Henryk Sosnowski
+*Date: 9/20/2019
+*Description: This program inputs 10 names from the user, prompts for a name to find in that list, 
+*			  displays the list, then displays the list again translated in a cipher (Al Bhed).
+*/
 
 #include<iostream>
 #include<vector>
@@ -14,7 +16,9 @@ bool DoesNameExist(const std::string& nameToFind, const std::vector<std::string>
 
 void PrintNames(const std::vector<std::string>& names);
 
-std::string AlBhed(std::string name);
+void PrintAlBhedNames(const std::vector<std::string>& names);
+
+std::string alBhed(std::string name);
 
 int main(int argc, char** argv)
 {
@@ -35,13 +39,18 @@ int main(int argc, char** argv)
 
 	std::cout << "\n\n";
 	PrintNames(nameList);
+	
+	std::cout << "\nThese are your names in Al Bhed:\n";
+	PrintAlBhedNames(nameList);
+
 
 	return 0;
 }
 
+//Asks the user for ten names and saves them in a vector
 void InputNames(std::vector<std::string>& names)
 {	
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		std::string name;
 		std::cout << "Please enter a name: ";
@@ -50,6 +59,7 @@ void InputNames(std::vector<std::string>& names)
 	}
 }
 
+//Searches a vector for the given string, returns true if it exists
 bool DoesNameExist(const std::string& nameToFind, const std::vector<std::string>& names)
 {
 	for (int i = 0; i < names.size(); i++)
@@ -62,6 +72,7 @@ bool DoesNameExist(const std::string& nameToFind, const std::vector<std::string>
 	return false;
 }
 
+//Prints the strings of a vector to the console with line breaks
 void PrintNames(const std::vector<std::string>& names)
 {
 	std::cout << "Names: \n";
@@ -71,14 +82,30 @@ void PrintNames(const std::vector<std::string>& names)
 	}
 }
 
-std::string AlBhed(std::string name)
+//Prints the strings of a vector to the console translated to Al Bhed
+void PrintAlBhedNames(const std::vector<std::string>& names)
 {
-	std::vector<std::string> AlBhedCypher{"a", "b", "c", "d", "e", "f", "g"};
+	std::cout << "Names: \n";
+	for (int i = 0; i < names.size(); i++)
+	{
+		std::cout << alBhed(names[i]) << std::endl;
+	}
+}
+
+//Translates a string into Al Bhed
+std::string alBhed(std::string name)
+{
+	std::vector<std::string> cipher{"Y", "P", "L", "T", "A", "V", "K", "R", "E", "Z", "G", "M", 
+									"S", "H", "U", "B", "X", "N", "C", "D", "I", "J", "F", "R", 
+									"O", "W", "[", "\\", "]", "^", "_", "'", "y", "p", "l", "t", 
+									"a", "v", "k", "r", "e", "z", "g", "m", "s", "h", "u", "b", 
+									"x", "n", "c", "d", "i", "j", "f", "r", "o", "w" };
+	std::string translated = "";
 
 	for (int i = 0; i < name.length(); i++)
 	{
-
+		translated.append(cipher[(int)name[i]-65]);
 	}
 
-	return name;
+	return translated;
 }

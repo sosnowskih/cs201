@@ -1,6 +1,6 @@
 //Program: lab8
 //Author: Henryk Sosnowski
-//Date: 9/18/2019
+//Date: 9/20/2019
 //Description: 
 
 #include<iostream>
