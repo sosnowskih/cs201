@@ -73,12 +73,11 @@ void PrintNames(const std::vector<std::string>& names)
 
 std::string AlBhed(std::string name)
 {
-	for (i = 0; i < name.length - 1; i++)
+	std::vector<std::string> AlBhedCypher{"a", "b", "c", "d", "e", "f", "g"};
+
+	for (int i = 0; i < name.length(); i++)
 	{
-		if(name[i] == "a" || name[i] == "A")
-		{
-			name[i] = "a";
-		}
+
 	}
 
 	return name;
