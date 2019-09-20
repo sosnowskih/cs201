@@ -9,26 +9,28 @@
 #include<string>
 #include<algorithm>
 
-int InputChange(std::string name);
+void InputChange(std::vector<int> & change);
 
 int main()
 {
 	std::vector<int> change;
 
 	std::cout << "This program will count your change.\n";
-	change.push_back(InputChange("pennies"));
 
-
-	std::cout << change[0];
+	InputChange(change);
 
 	return 0;
 }
 
-//Asks for and returns user input based on the given string parameter
-int InputChange(std::string name)
+//Asks the user for amount of different types of change and saves them to the change vector
+void InputChange(std::vector<int> & change)
 {
-	std::cout << "How many " << name << " do you have? ";
-	int n;
-	std::cin >> n;
-	return n;
+	std::vector<std::string> name = {"pennies", "nickels", "dimes", "quarters", "one-dollar coins"};
+	for (int i = 0; i < name.size(); i++)
+	{
+		std::cout << "How many " << name[i] << " do you have? ";
+		int input = 0;
+		std::cin >> input;
+		change.push_back(input);
+	}
 }
