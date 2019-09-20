@@ -7,9 +7,13 @@
 #include"intio.hpp"
 #include"lab8.hpp"
 
-int getInput(int input)
+int doInput()
 {
-	getInt(input);
+	int input = getInt();
 	return input;
 }
 
+int compute(int n)
+{
+	return n * n;
+}
