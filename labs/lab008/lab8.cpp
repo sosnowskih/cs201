@@ -4,8 +4,12 @@
 //Description: 
 
 #include<iostream>
+#include"intio.hpp"
+#include"lab8.hpp"
 
-int main()
+int getInput(int input)
 {
-
+	getInt(input);
+	return input;
 }
+
