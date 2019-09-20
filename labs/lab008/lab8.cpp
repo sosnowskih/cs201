@@ -15,5 +15,19 @@ int doInput()
 
 int compute(int n)
 {
-	return n * n;
+	if (n <= 0)
+	{
+		return 0;
+	}
+
+	int divisible = 0;
+	for (int i = 1; i < n; i++)
+	{
+		if (n % i == 0)
+		{
+			divisible += 1;
+		}
+	}
+
+	return divisible;
 }
