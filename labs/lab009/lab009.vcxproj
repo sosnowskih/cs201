@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="modifyString.cpp" />
+    <ClCompile Include="modifyStringMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="modifyString.hpp" />

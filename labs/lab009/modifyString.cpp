@@ -1,14 +1,17 @@
-//Program: modifyString.cpp
-//Author: Henryk Sosnowski
-//Date: 9/23/2019
-//Description: 
-
 #include<iostream>
+#include<string>
 #include"modifyString.hpp"
 
-int main()
+/**
+ * Append an integer to a string
+ * @param referencedString string to append integer to
+ * @param n append (n % 10) to referencedString
+ * @return New length of referencedString
+ */
+
+int modifyString(std::string& referencedString, int n)
 {
-
-
-	return 0;
+	std::string newstring;
+	referencedString.append(std::to_string(n));
+	return referencedString.length();
 }
