@@ -13,6 +13,8 @@ void InputChange(std::vector<int> & change, std::vector<std::string>& name);
 
 void ListChange(std::vector<int>& change, std::vector<std::string>& name);
 
+void PrintTotal(std::vector<int>& change);
+
 int main()
 {
 	std::vector<int> change;
@@ -21,10 +23,10 @@ int main()
 	std::cout << "This program will count your change.\n";
 
 	InputChange(change, name);
-
 	std::cout << std::endl;
-
 	ListChange(change, name);
+	std::cout << std::endl;
+	PrintTotal(change);
 
 	return 0;
 }
@@ -55,4 +57,11 @@ void ListChange(std::vector<int>& change, std::vector<std::string>& name)
 			std::cout << "You have " << change[i] << " " << name[i] << ".\n";
 		}
 	}
+}
+
+//Adds up the change in the vector and displays the total
+void PrintTotal(std::vector<int>& change)
+{
+	int sum = change[0] + 5 * change[1] + 10 * change[2] + 25 * change[3] + 100 * change[4];
+	std::cout << "The value of all your coins is $" << sum / 100 << "." << sum % 100 << ".";
 }
