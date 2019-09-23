@@ -1,6 +1,6 @@
 /*Program: names
 *Author: Henryk Sosnowski
-*Date: 9/20/2019
+*Date: 9/22/2019
 *Description: This program inputs 10 names from the user, prompts for a name to find in that list, 
 *			  displays the list, then displays the list again translated in a cipher (Al Bhed).
 */
@@ -23,6 +23,8 @@ std::string alBhed(std::string name);
 int main(int argc, char** argv)
 {
 	std::vector<std::string> nameList;
+
+	std::cout << "This program will save 10 names, search through them, and translate them to Al Bhed.\n";
 	InputNames(nameList);
 
 	std::cout << "\nEnter a name to find: ";
