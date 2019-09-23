@@ -7,7 +7,6 @@
 #include<iostream>
 #include<vector>
 #include<string>
-#include<algorithm>
 
 void InputChange(std::vector<int> & change, std::vector<std::string>& name);
 
