@@ -1,7 +1,7 @@
 /*Program: money
 *Author: Henryk Sosnowski
-*Date: 9/20/2019
-*Description: 
+*Date: 9/22/2019
+*Description: This program asks the user for the number of held pennies, nickels, dimes, quarters, and dollar coins and prints the total dollar amount.
 */
 
 #include<iostream>
@@ -25,7 +25,6 @@ int main()
 	InputChange(change, name);
 	std::cout << std::endl;
 	ListChange(change, name);
-	std::cout << std::endl;
 	PrintTotal(change);
 
 	return 0;
