@@ -5,12 +5,13 @@
 
 #include<iostream>
 #include<vector>
+#include<string>
 
 int main()
 {
 	for (;;)
 	{
-		std::string input;
+		auto input = std::string(" ");
 		std::vector<char> lower;
 		std::vector<char> upper;
 		std::vector<char> punct;
@@ -50,6 +51,9 @@ int main()
 		}
 		std::cout << "\n\n";
 	}
+
+	int c;
+	std::cin >> c;
 
 	return 0;
 }
