@@ -1,7 +1,7 @@
-/*Program: quadratic
+/*Program: kelvin
 *Author: Henryk Sosnowski
 *Date: 9/29/2019
-*Description: This program converts a Celsius degree value to Kelvin.
+*Description: This program converts a Celsius degree value to Kelvin.  Errors to given code are present as comments.
 */
 
 #include<iostream>
@@ -12,6 +12,7 @@ double ctok(double c)
 	//int k = c + 273.15;  int will truncate values less than 1
 	double k = c + 273.15;
 
+	//Check for temperatures below absolute zero
 	if (k < 0)
 	{
 		return 0;
