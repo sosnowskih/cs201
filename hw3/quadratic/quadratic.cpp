@@ -5,12 +5,28 @@
 */
 
 #include<iostream>
+#include<math.h>
 
 int main()
 {
 	double a, b, c = 0;
 
+	std::cout << "This program will calculate the roots of a quadratic equation.\n"
+				<< "Please enter a: ";
+	std::cin >> a;
+	std::cout << "Please enter b: ";
+	std::cin >> b;
+	std::cout << "Please enter c: ";
+	std::cin >> c;
 
-
+	if (b * b - 4 * a * c < 0)
+	{
+		std::cout << "This equation has no real roots.\n";
+	}
+	else
+	{
+		std::cout << "The roots are: " << (-b + sqrt(b * b - 4 * a * c)) / (2 * a) 
+					<< " and " << (-b - sqrt(b * b - 4 * a * c)) / (2 * a);
+	}
 	return 0;
 }
