@@ -1,7 +1,7 @@
 /*Program: boxprint
 *Author: Henryk Sosnowski
 *Date: 9/23/2019
-*Description: 
+*Description: This program prints a box of asterisks with a border thickness and contained string input by the user.
 */
 
 #include<iostream>
