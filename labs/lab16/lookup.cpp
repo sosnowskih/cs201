@@ -1,4 +1,4 @@
-// lookup.cpp  INCOMPLETE
+// lookup.cpp
 // Glenn G. Chappell
 // 23 Feb 2018
 //
@@ -37,9 +37,7 @@ bool sequentialSearch(vector<int> keys,
 			return true;
 		}
 	}
-
-    return false;  // DUMMY
-    // TODO: Write this!
+    return false;
 }
 
 
