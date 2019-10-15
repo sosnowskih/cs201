@@ -15,25 +15,35 @@ bool ReadLine(std::string& str)
 	return true;
 }
 
-//Counts the number of tokens in a vector of strings and returns the total
+//Accepts multiple lines of input until the user types end, End, or END 
+//and returns the total number of tokens.
 unsigned StringToTokensWS(std::vector<std::string>& tokens)
 {
-	std::string token;
 	int total = 0;
-	for (int n = 0; n < tokens.size(); ++n)
-	{
-		token = tokens[n];
-		std::istringstream instream(token);
-		if (instream)
+	while (true) {
+		std::string str;
+		bool b = ReadLine(str);
+		std::istringstream instream(str);
+
+		while (instream)
 		{
+			std::string tokenstring;
+			instream >> tokenstring;
+			if (tokenstring == "end" || tokenstring == "End" || tokenstring == "END")
+			{
+				return total - 1;
+			}
+			tokens.push_back(tokenstring);
 			total++;
 		}
 	}
-	return total-1;
 }
 
 
 void AnalyzeTokens(const std::vector<std::string>& tokens)
 {
+	for (int n = 0; n < tokens.size(); ++n)
+	{
 
+	}	
 }

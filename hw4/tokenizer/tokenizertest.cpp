@@ -13,19 +13,14 @@ using std::vector;
 int main()
 {
 	cout << "Please enter a line: ";
-	string str; 
-	bool b = ReadLine(str);
-	istringstream instream(str);
 	vector<string> tokens;
+	int total = StringToTokensWS(tokens);
 
-	while (instream)
+	cout << total << "  ";
+	for (int i = 0; i < tokens.size(); i++)
 	{
-		string tokenstring;
-		instream >> tokenstring;
-		tokens.push_back(tokenstring);
+		cout << tokens[i] << " ";
 	}
-
-	cout << StringToTokensWS(tokens);
 
 	return 0;
 }
