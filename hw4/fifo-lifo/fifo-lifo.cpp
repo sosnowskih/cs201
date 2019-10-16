@@ -25,7 +25,7 @@ void FifoPop(std::vector<std::string>& container, const std::string& item)
 //Last-In First-Out
 void LifoPush(std::vector<std::string>& container, const std::string& item)
 {
-
+	container.push_back(item);
 }
 
 void LifoPop(std::vector<std::string>& container, const std::string& item)
