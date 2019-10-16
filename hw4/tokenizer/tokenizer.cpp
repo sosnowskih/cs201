@@ -52,28 +52,28 @@ void AnalyzeTokens(const std::vector<std::string>& tokens)
 		instream >> integer;
 		if (tokens[n].empty())
 		{
-			std::cout << "[whitespace]     " << tokens[n] << std::endl;
+			std::cout << "[whitespace]     " << "\"\"" << std::endl;
 		}
 		else if (instream)
 		{
-			std::cout << "[integer]        " << tokens[n] << std::endl;
+			std::cout << "[integer]        " << "\"" << tokens[n] << "\"" << std::endl;
 		}
 		else {
 			if (tokens[n].front() == '\"' && tokens[n].back() == '\"')
 			{
-				std::cout << "[string]         " << tokens[n] << std::endl;
+				std::cout << "[string]         " << "\"\\\"" << tokens[n] << "\\\"\"" << std::endl;
 			}
 			else if (tokens[n].front() >= '0' && tokens[n].front() <= '9')
 			{
-				std::cout << "[identifier]     " << tokens[n] << std::endl;
+				std::cout << "[identifier]     " << "\"" << tokens[n] << "\"" << std::endl;
 			}
 			else if (tokens[n].front() >= 'A' && tokens[n].front() <= 'z')
 			{
-				std::cout << "[identifier]     " << tokens[n] << std::endl;
+				std::cout << "[identifier]     " << "\"" << tokens[n] << "\"" << std::endl;
 			}
 			else
 			{
-				std::cout << "[other]          " << tokens[n] << std::endl;
+				std::cout << "[other]          " << "\"" << tokens[n] << "\"" << std::endl;
 			}
 		}
 	}	
