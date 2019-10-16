@@ -17,7 +17,7 @@ void FifoPush(std::vector<std::string>& container, const std::string& item)
 }
 
 
-void FifoPop(std::vector<std::string>& container, const std::string& item)
+void FifoPop(std::vector<std::string>& container)
 {
 	container.pop_back();
 }
@@ -30,7 +30,7 @@ void LifoPush(std::vector<std::string>& container, const std::string& item)
 }
 
 
-void LifoPop(std::vector<std::string>& container, const std::string& item)
+void LifoPop(std::vector<std::string>& container)
 {
 	container.pop_back();
 }
