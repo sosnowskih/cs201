@@ -30,7 +30,7 @@ void LifoPush(std::vector<std::string>& container, const std::string& item)
 
 void LifoPop(std::vector<std::string>& container, const std::string& item)
 {
-
+	container.pop_back();
 }
 
 //Shared functionality
