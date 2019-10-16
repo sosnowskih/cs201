@@ -22,28 +22,37 @@ void FifoPop(std::vector<std::string>& container, const std::string& item)
 	container.pop_back();
 }
 
+
 //Last-In First-Out
 void LifoPush(std::vector<std::string>& container, const std::string& item)
 {
 	container.push_back(item);
 }
 
+
 void LifoPop(std::vector<std::string>& container, const std::string& item)
 {
 	container.pop_back();
 }
 
+
 //Shared functionality
 bool IsContainerEmpty(const std::vector<std::string>& container)
 {
-	
+
 	return true;
 }
 
+
 void PrintContainer(const std::vector<std::string>& container)
 {
-
+	std::cout << "Your Container:" << std::endl;
+	for (int i = 0; i < container.size(); ++i)
+	{
+		std::cout << "Index " << i << ": " << container[i] << std::endl;
+	}
 }
+
 
 //Test Functions
 bool TestFifo()
@@ -51,6 +60,7 @@ bool TestFifo()
 
 	return true;
 }
+
 
 bool TestLifo()
 {
