@@ -20,7 +20,7 @@ int main()
 
 	while (true)
 	{
-		if (!IsContainerEmpty)
+		if (!IsContainerEmpty(container))
 		{
 			PrintContainer(container);
 		}
@@ -32,6 +32,7 @@ int main()
 		string item;
 		cin >> choice;
 
+		//Fifo menu process
 		if (choice == 1)
 		{
 			while (true)
@@ -44,7 +45,7 @@ int main()
 				}
 				FifoPush(container, item);
 			}
-			while (true)
+			while (!IsContainerEmpty(container))
 			{
 				PrintContainer(container);
 				cout << "Enter 1 to pop an item or any other key to go back.\n";
@@ -60,6 +61,8 @@ int main()
 				}
 			}
 		}
+
+		//lifo menu process
 		else if (choice == 2)
 		{
 			while (true)
@@ -72,7 +75,7 @@ int main()
 				}
 				LifoPush(container, item);
 			}
-			while (true)
+			while (!IsContainerEmpty(container))
 			{
 				PrintContainer(container);
 				cout << "Enter 1 to pop an item or any other key to go back.\n";
