@@ -1,8 +1,8 @@
 //Program: bulls-and-cows.cpp
 //Author: Henryk Sosnowski
 //Date: 10/15/2019
-//Description: This program 
-
+//Description: This program asks the user to guess a four-digit integer.  Correct digits in correct places are reported as bulls, 
+//and correct digits in incorrect places are reported as cows.  The game repeats until the user gets the correct answer.
 
 
 #include<iostream>
@@ -18,8 +18,8 @@ void guessCheck(const std::vector<int>& guess, const std::vector<int>& key, bool
 
 int main()
 {
-	std::vector<int> key { 1, 2, 3, 4 };
 	bool won = false;
+	std::vector<int> key { 3, 4, 2, 0 };
 
 	while (!won)
 	{
@@ -34,9 +34,11 @@ int main()
 }
 
 
+//Takes a line of input from the user and repeats if a four-digit integer is not entered
+//Each digit of valid input is added to the referenced vector
 void userGuess(std::vector<int>& guess)
 {
-	std::cout << "Try to guess the four-digit number: ";
+	std::cout << "Try to guess the non-repeating four-digit number: ";
 	int intInput = 0;
 	std::string stringInput;
 
@@ -48,7 +50,7 @@ void userGuess(std::vector<int>& guess)
 	{
 		while (intInput < 1000 || intInput >= 10000)
 		{
-			std::cout << intInput << "Error: Please enter a four-digit integer: ";
+			std::cout << "Error: Please enter a four-digit integer: ";
 			std::getline(std::cin, stringInput);
 			std::istringstream instream(stringInput);
 			instream >> intInput;
@@ -61,6 +63,9 @@ void userGuess(std::vector<int>& guess)
 	}
 }
 
+
+//Compares the contents of the referenced guess and key vectors and prints the resulting numbers of bulls and cows
+//Changes the referenced boolean value to true upon all numbers matching
 void guessCheck(const std::vector<int>& guess, const std::vector<int>& key, bool &won) 
 {
 	int bull = 0;
@@ -96,9 +101,4 @@ void guessCheck(const std::vector<int>& guess, const std::vector<int>& key, bool
 		return;
 	}
 	std::cout << "Incorrect.  There are " << bull << " bulls and " << cow << " cows.\n";
-
-	for (int i = 0; i < guess.size(); ++i)
-	{
-		std::cout << guess[i] << " ";
-	}
 }
