@@ -39,8 +39,11 @@ void LifoPop(std::vector<std::string>& container, const std::string& item)
 //Shared functionality
 bool IsContainerEmpty(const std::vector<std::string>& container)
 {
-
-	return true;
+	if (container.size() == 0)
+	{
+		return true;
+	}
+	return false;
 }
 
 
