@@ -1,26 +1,23 @@
+//Program: tokenizertest.cpp
+//Author: Henryk Sosnowski
+//Date: 10/15/2019
+//Description: This program accepts multiple lines of text from the user, 
+//then prints each individual token along with its type.
+
+
 #include<iostream>
-using std::cin;
-using std::cout;
 #include<string>
-using std::string;
-#include<sstream>
-using std::istringstream;
 #include<vector>
-using std::vector;
 #include"tokenizer.hpp"
 
 
 int main()
 {
-	cout << "Please enter a line: ";
-	vector<string> tokens;
-	int total = StringToTokensWS(tokens);
+	std::cout << "Please type in some text.  Type \"end\", \"End\" or \"END\" to finish: ";
+	std::vector<std::string> tokens;
+	StringToTokensWS(tokens);
 
-	cout << total << "  ";
-	for (int i = 0; i < tokens.size(); i++)
-	{
-		cout << tokens[i] << " ";
-	}
+	AnalyzeTokens(tokens);
 
 	return 0;
 }

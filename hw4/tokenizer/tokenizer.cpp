@@ -16,7 +16,7 @@ bool ReadLine(std::string& str)
 }
 
 //Accepts multiple lines of input until the user types end, End, or END 
-//and returns the total number of tokens.
+//Adds each token (including line breaks) to the referenced vector as individual elements
 unsigned StringToTokensWS(std::vector<std::string>& tokens)
 {
 	int total = 0;
@@ -29,21 +29,52 @@ unsigned StringToTokensWS(std::vector<std::string>& tokens)
 		{
 			std::string tokenstring;
 			instream >> tokenstring;
-			if (tokenstring == "end" || tokenstring == "End" || tokenstring == "END")
-			{
-				return total - 1;
-			}
 			tokens.push_back(tokenstring);
 			total++;
+			if (tokenstring == "end" || tokenstring == "End" || tokenstring == "END")
+			{
+				return total;
+			}
 		}
 	}
 }
 
 
+//Prints the type and value of each token of a vector of strings
 void AnalyzeTokens(const std::vector<std::string>& tokens)
 {
 	for (int n = 0; n < tokens.size(); ++n)
 	{
-
+		std::istringstream instream(tokens[n]);
+		int integer = 0;
+		std::string nonint;
+		
+		instream >> integer;
+		if (tokens[n].empty())
+		{
+			std::cout << "[whitespace]     " << tokens[n] << std::endl;
+		}
+		else if (instream)
+		{
+			std::cout << "[integer]        " << tokens[n] << std::endl;
+		}
+		else {
+			if (tokens[n].front() == '\"' && tokens[n].back() == '\"')
+			{
+				std::cout << "[string]         " << tokens[n] << std::endl;
+			}
+			else if (tokens[n].front() >= '0' && tokens[n].front() <= '9')
+			{
+				std::cout << "[identifier]     " << tokens[n] << std::endl;
+			}
+			else if (tokens[n].front() >= 'A' && tokens[n].front() <= 'z')
+			{
+				std::cout << "[identifier]     " << tokens[n] << std::endl;
+			}
+			else
+			{
+				std::cout << "[other]          " << tokens[n] << std::endl;
+			}
+		}
 	}	
 }
