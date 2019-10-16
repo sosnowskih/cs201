@@ -16,9 +16,10 @@ void FifoPush(std::vector<std::string>& container, const std::string& item)
 	container[0] = item;
 }
 
+
 void FifoPop(std::vector<std::string>& container, const std::string& item)
 {
-
+	container.pop_back();
 }
 
 //Last-In First-Out
