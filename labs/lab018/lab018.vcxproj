@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{3C3A94E9-34B9-412D-816B-55E4B49DFE39}</ProjectGuid>
-    <RootNamespace>lab18</RootNamespace>
+    <ProjectGuid>{C5ED5A2D-4586-49EE-8F0B-786CF1B897E5}</ProjectGuid>
+    <RootNamespace>lab018</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,6 +123,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\Downloads\insertion_sort.cpp" />
+    <ClCompile Include="..\..\..\..\..\Downloads\insertion_sort_main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\Downloads\insertion_sort.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
