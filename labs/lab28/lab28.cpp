@@ -16,6 +16,7 @@ void printIntegersToFile(const std::vector<int>& integers, std::ofstream& output
 		}
 		output << "\n";
 	}
+	output << std::endl;
 }
 
 
@@ -38,6 +39,7 @@ int main()
 
 		fout << "\n";
 	}
+	fout << std::endl;
 
 	std::cout << "1-100 table written to output1.txt 10 times." << std::endl;
 
