@@ -10,6 +10,11 @@
 #include <map>
 #include <random>
 #include <cmath>
+#include <stdlib.h>
+
+// Seed with a real random value, if available
+std::random_device r;
+
 
 int RandomBetweenU(int first, int second)
 {
@@ -23,17 +28,22 @@ int RandomBetweenN(int first, int second)
 	return 0;
 }
 
-void PrintDistribution(const std::map<int, int>& numbers)
+int RandomBetween(int first, int second)
 {
 
+}
+
+void PrintDistribution(const std::map<int, int>& numbers)
+{
+	for (auto p : numbers) {
+		std::cout << std::fixed << std::setprecision(1) << std::setw(2)
+			<< p.first << ' ' << std::string(p.second / 200, '*') << '\n';
+	}
 }
 
 
 int main()
 {
-	// Seed with a real random value, if available
-	std::random_device r;
-
 	// Choose a random mean between 1 and 6
 	std::default_random_engine e1(r());
 	std::uniform_int_distribution<int> uniform_dist(1, 6);
@@ -50,9 +60,12 @@ int main()
 		++hist[std::round(normal_dist(e2))];
 	}
 	std::cout << "Normal distribution around " << mean << ":\n";
-	for (auto p : hist) {
-		std::cout << std::fixed << std::setprecision(1) << std::setw(2)
-			<< p.first << ' ' << std::string(p.second / 200, '*') << '\n';
+
+	PrintDistribution(hist);
+
+	for (int i = 0; i < 20; i++)
+	{
+		std::cout << RandomBetween(0, 5) << " ";
 	}
 
 	return 0;
