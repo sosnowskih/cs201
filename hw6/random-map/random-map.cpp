@@ -30,7 +30,7 @@ int RandomBetweenN(int first, int second)
 
 int RandomBetween(int first, int second)
 {
-
+	return first + rand() % (second - first + 1);
 }
 
 void PrintDistribution(const std::map<int, int>& numbers)
