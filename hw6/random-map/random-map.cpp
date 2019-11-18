@@ -25,8 +25,22 @@ int RandomBetweenU(int first, int second)
 
 int RandomBetweenN(int first, int second)
 {
+	int mean = first + (second - first) / 2;
 
-	return 0;
+	std::normal_distribution<> dist(mean, mean/2);
+	int result = dist(gen);
+	if (result < 0)
+	{
+		return 0;
+	}
+	else if (result > second)
+	{
+		return second;
+	}
+	else
+	{
+		return result;
+	}
 }
 
 int RandomBetween(int first, int second)
@@ -42,6 +56,14 @@ void PrintDistribution(const std::map<int, int>& numbers)
 	}
 }
 
+std::map<int, int> GenMap(int first, int second, int RandomGen(int,int))
+{
+	std::map<int, int> hist;
+	for (int n = 0; n < 10000; ++n) {
+		++hist[std::round(RandomGen(first, second))];
+	}
+	return hist;
+}
 
 int main()
 {
@@ -56,18 +78,13 @@ int main()
 	std::mt19937 e2(seed2);
 	std::normal_distribution<> normal_dist(mean, 2);
 
-	std::map<int, int> hist;
-	for (int n = 0; n < 10000; ++n) {
-		++hist[std::round(normal_dist(e2))];
-	}
-	std::cout << "Normal distribution around " << mean << ":\n";
+	std::map<int, int> hist = GenMap(0, 6, RandomBetweenN);
+	//for (int n = 0; n < 10000; ++n) {
+	//	++hist[std::round(RandomBetween(0, 10))];
+	//}
+	//std::cout << "Normal distribution around " << mean << ":\n";
 
 	PrintDistribution(hist);
-
-	for (int i = 0; i < 20; i++)
-	{
-		std::cout << RandomBetweenU(0, 5) << " ";
-	}
 
 	return 0;
 }
