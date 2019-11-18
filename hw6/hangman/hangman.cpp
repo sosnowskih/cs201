@@ -4,14 +4,12 @@
 //Description: This program will ask the user to guess an unknown word letter-by-letter.  The game is lost if the user guesses ten letters incorrectly.
 
 #include <iostream>
-#include <string>
 #include <map>
 #include <algorithm>
 #include <vector>
 
 using std::cout;
 using std::endl;
-using std::string;
 using std::map;
 using std::vector;
 
