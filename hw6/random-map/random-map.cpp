@@ -14,12 +14,13 @@
 
 // Seed with a real random value, if available
 std::random_device r;
+std::mt19937 gen(r());
 
 
 int RandomBetweenU(int first, int second)
 {
-
-	return 0;
+	std::uniform_int_distribution<int> dist(first, second);
+	return dist(gen);
 }
 
 int RandomBetweenN(int first, int second)
@@ -65,7 +66,7 @@ int main()
 
 	for (int i = 0; i < 20; i++)
 	{
-		std::cout << RandomBetween(0, 5) << " ";
+		std::cout << RandomBetweenU(0, 5) << " ";
 	}
 
 	return 0;
