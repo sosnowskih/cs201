@@ -7,11 +7,13 @@
 #include <string>
 #include <map>
 #include <algorithm>
+#include <vector>
 
 using std::cout;
 using std::endl;
 using std::string;
 using std::map;
+using std::vector;
 
 //Prints the hanging man based on the number of wrong guesses
 void PrintMan(int wrong)
@@ -51,11 +53,15 @@ void PrintMan(int wrong)
 }
 
 //Prints either the correctly guessed char of the answer or an underscore
-void PrintAnswer(map<char, int> answer, map<char, int> guess)
+void PrintAnswer(vector<char> answer, map<char, int> guess)
 {
 	cout << "Answer: ";
 
-	auto check = guess.count(answer[1]);
+	auto check = guess.count(answer[0]);
+	if (check != 0) cout << answer[0] << " ";
+	else cout << "_ ";
+
+	check = guess.count(answer[1]);
 	if (check != 0) cout << answer[1] << " ";
 	else cout << "_ ";
 
@@ -65,10 +71,6 @@ void PrintAnswer(map<char, int> answer, map<char, int> guess)
 
 	check = guess.count(answer[3]);
 	if (check != 0) cout << answer[3] << " ";
-	else cout << "_ ";
-
-	check = guess.count(answer[4]);
-	if (check != 0) cout << answer[4] << " ";
 	else cout << "_ " << endl;
 }
 
@@ -77,12 +79,8 @@ int main()
 {
 	cout << "Try to guess a word letter-by-letter before you make ten mistakes." << endl;
 
-	map<char, int> answer = {
-		{'j', 1},
-		{'a', 2},
-		{'z', 3},
-		{'z', 4}
-	};
+	//string answer = "jazz";
+	vector<char> answer = { 'j', 'a', 'z', 'z' };
 
 	map<char, int> guessm;
 	int wrong = 0;
@@ -96,10 +94,10 @@ int main()
 		cout << "Guess a letter: ";
 		char guess;
 		std::cin >> guess;
-		guessm[turn] = guess;
+		guessm[guess] = turn;
 
-		auto check = answer.count(guess);
-		if (check != 0)
+		//auto check = answer.count(guess);
+		if (binary_search(answer.begin(), answer.end(), guess))
 		{
 			cout << "Correct!" << endl;
 		}
