@@ -15,6 +15,7 @@ using std::string;
 using std::map;
 using std::vector;
 
+
 //Prints the hanging man based on the number of wrong guesses
 void PrintMan(int wrong)
 {
@@ -52,6 +53,7 @@ void PrintMan(int wrong)
 	cout << endl << "L__________" << endl;
 }
 
+
 //Prints either the correctly guessed char of the answer or an underscore
 void PrintAnswer(vector<char> answer, map<char, int> guess)
 {
@@ -70,8 +72,21 @@ void PrintAnswer(vector<char> answer, map<char, int> guess)
 	else cout << "_ ";
 
 	check = guess.count(answer[3]);
-	if (check != 0) cout << answer[3] << " ";
+	if (check != 0) cout << answer[3] << endl;
 	else cout << "_ " << endl;
+}
+
+
+//Checks if the entire answer has been guessed
+bool HasWon(vector<char> answer, map<char, int> guess)
+{
+	auto check0 = guess.count(answer[0]);
+	auto check1 = guess.count(answer[1]);
+	auto check2 = guess.count(answer[2]);
+	auto check3 = guess.count(answer[3]);
+
+	if (check0 && check1 && check2 && check3) return true;
+	else return false;
 }
 
 
@@ -79,9 +94,7 @@ int main()
 {
 	cout << "Try to guess a word letter-by-letter before you make ten mistakes." << endl;
 
-	//string answer = "jazz";
 	vector<char> answer = { 'j', 'a', 'z', 'z' };
-
 	map<char, int> guessm;
 	int wrong = 0;
 	int turn = 0;
@@ -96,8 +109,7 @@ int main()
 		std::cin >> guess;
 		guessm[guess] = turn;
 
-		//auto check = answer.count(guess);
-		if (binary_search(answer.begin(), answer.end(), guess))
+		if (std::binary_search(answer.begin(), answer.end(), guess))
 		{
 			cout << "Correct!" << endl;
 		}
@@ -111,6 +123,13 @@ int main()
 		if (wrong > 9)
 		{
 			cout << "Game Over!" << endl;
+			break;
+		}
+
+		if (HasWon(answer, guessm))
+		{
+			PrintAnswer(answer, guessm);
+			cout << "You have won!" << endl;
 			break;
 		}
 	}
