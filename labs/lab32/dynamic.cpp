@@ -51,7 +51,7 @@ int main()
     cout << endl;
 
     // Deallocate the dynamic array.
-	//delete[] arr;
+	delete[] arr;
 
     // Wait for user
     cout << "Press ENTER to quit ";
