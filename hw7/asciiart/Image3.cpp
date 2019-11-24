@@ -2,6 +2,8 @@
 // Implementation for Image3 class
 // Original Author: Jonathan Metzgar
 // CS 201 course
+
+#include <fstream>
 #include "Image3.hpp"
 
 // Image3 Constructor
@@ -33,7 +35,17 @@ void Image3::setPixel(unsigned x, unsigned y, const Color3& color) {
 bool Image3::savePPM(const std::string& path) const {
 	// TODO: Save the image to the disk
 	// REQUIREMENT: Use the STREAM operators for the file contents
-	return false;
+
+	std::ofstream fout(path);
+	if (!fout) return false;
+
+	fout << "P3\n" << w << " " << h << "\n";
+	for (auto i : pixels)
+	{
+		fout << i.r << " " << i.g << " " << i.b << "\n";
+	}
+	fout << std::endl;
+	return true;
 }
 
 bool Image3::loadPPM(const std::string& path) {
