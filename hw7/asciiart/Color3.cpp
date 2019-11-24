@@ -24,7 +24,10 @@ Color3::Color3(int R, int G, int B) {
 
 int Color3::weightedSum() const {
 	// Implement Y = 0.2126R + 0.7152G + 0.0722B
+	int sum = 0.2126 * (unsigned int)r + 0.7152 * (unsigned int)g + 0.07228 * (unsigned int)b;
 	// Ensure values are inside the range 0 to 255
+	if (sum < 0) sum = 0;
+	if (sum > 255) sum = 255;
 	return 0;
 }
 
@@ -32,8 +35,8 @@ char Color3::asciiValue() const {
 	// Use at least 16 characters, sort these from dark to light
 	// or light to dark and then map the weightedSum() to the range
 	// 0 to 15. Please pick your own characters
-	const char values[] = "ABCDEFGHIJKLMNOP";
-	unsigned darkness = 0;
+	const char values[] = " .-:=+x|iI[{CO0&";
+	unsigned darkness = weightedSum()/16;
 	return values[darkness];
 }
 
