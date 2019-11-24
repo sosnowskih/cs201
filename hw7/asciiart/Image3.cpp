@@ -10,7 +10,7 @@ Image3::Image3(unsigned width, unsigned height) {
 	// TODO: initialize the internal w and h members
 	w = width;
 	h = height;
-	pixels.resize(w * h);
+	pixels.resize(w * w + h);
 }
 
 // Return a pixel from the image
@@ -20,7 +20,9 @@ const Color3& Image3::getPixel(unsigned x, unsigned y) const {
 	// BETTER OPTION 2: return a color
 	// Hint: maybe this is already in the class?
 
-	return pixels[y * w + x];
+	if ((y * w + x) < pixels.size()) return pixels[0];
+	else if ((y * w + x) > pixels.size()) return pixels[w*w+h];
+	else return pixels[y * w + x];
 }
 
 void Image3::setPixel(unsigned x, unsigned y, const Color3& color) {
