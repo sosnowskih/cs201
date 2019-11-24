@@ -28,7 +28,7 @@ int Color3::weightedSum() const {
 	// Ensure values are inside the range 0 to 255
 	if (sum < 0) sum = 0;
 	if (sum > 255) sum = 255;
-	return 0;
+	return sum;
 }
 
 char Color3::asciiValue() const {
