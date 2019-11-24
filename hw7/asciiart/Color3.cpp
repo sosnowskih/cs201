@@ -3,6 +3,7 @@
 // Original Author: Jonathan Metzgar
 // CS 201 course
 #include <iomanip>
+#include <string>
 #include "Color3.hpp"
 
 using std::setw;
@@ -51,5 +52,11 @@ std::ostream& operator<<(std::ostream& ostr, const Color3& color) {
 
 std::istream& operator>>(std::istream& istr, Color3& color) {
 	// Implement your own input for a Color3
+	int rr, gg, bb;
+	istr >> rr, gg, bb;
+	color.r = (unsigned char)rr;
+	color.g = (unsigned char)gg;
+	color.b = (unsigned char)bb;
+
 	return istr;
 }

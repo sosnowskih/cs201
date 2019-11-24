@@ -59,19 +59,20 @@ bool Image3::loadPPM(const std::string& path) {
 
 	fin >> type >> w >> h >> maxColor;
 
-	unsigned int x, y = 1;
+	unsigned int xx = 1;
+	unsigned int yy = 1;
 	while(true)
 	{
 		int r, g, b;
 		fin >> r >> g >> b;
-		setPixel(x, y, Color3(r, g, b));
+		setPixel(xx, yy, Color3(r, g, b));
 
-		if (x == w) {
-			x = 0;
-			y++;
+		if (xx == w) {
+			xx = 0;
+			yy++;
 		}
-		else x++;
-		if (w == x & h == y) return true;
+		else xx++;
+		if (w == xx & h == yy) return true;
 	}
 }
 
