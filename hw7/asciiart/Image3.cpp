@@ -39,7 +39,7 @@ bool Image3::savePPM(const std::string& path) const {
 	std::ofstream fout(path);
 	if (!fout) return false;
 
-	fout << "P3\n" << w << " " << h << "\n";
+	fout << "P3\n" << w << " " << h << "\n" << "255\n";
 	for (auto i : pixels)
 	{
 		fout << i.r << " " << i.g << " " << i.b << "\n";
@@ -51,7 +51,28 @@ bool Image3::savePPM(const std::string& path) const {
 bool Image3::loadPPM(const std::string& path) {
 	// TODO: Load an image from the disk
 	// REQUIREMENT: Use the STREAM operators for the file contents
-	return false;
+
+	std::ifstream fin(path);
+	if (!fin) return false;
+
+	std::string type, maxColor;
+
+	fin >> type >> w >> h >> maxColor;
+
+	int x, y = 1;
+	while(true)
+	{
+		int r, g, b;
+		fin >> r >> g >> b;
+		setPixel(x, y, Color3(r, g, b));
+
+		if (x == w) {
+			x = 0;
+			y++;
+		}
+		else x++;
+		if (x == w & y == h) return true;
+	}
 }
 
 void Image3::printASCII(std::ostream& ostr) const {
