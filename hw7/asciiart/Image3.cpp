@@ -59,7 +59,7 @@ bool Image3::loadPPM(const std::string& path) {
 
 	fin >> type >> w >> h >> maxColor;
 
-	int x, y = 1;
+	unsigned int x, y = 1;
 	while(true)
 	{
 		int r, g, b;
@@ -71,12 +71,22 @@ bool Image3::loadPPM(const std::string& path) {
 			y++;
 		}
 		else x++;
-		if (x == w & y == h) return true;
+		if (w == x & h == y) return true;
 	}
 }
 
 void Image3::printASCII(std::ostream& ostr) const {
 	// TODO: Print an ASCII version of this image
+
+	for (int i = 0; i < pixels.size(); i++) {
+		for (int y = 0; y < h; y++) {
+			for (int x = 0; x < w; x++) {
+				std::cout << pixels[i].asciiValue();
+				i++;
+			}
+			std::cout << std::endl;
+		}
+	}
 }
 
 // STREAM OPERATORS for IMAGE3 class
