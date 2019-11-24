@@ -27,6 +27,7 @@ const Color3& Image3::getPixel(unsigned x, unsigned y) const {
 
 void Image3::setPixel(unsigned x, unsigned y, const Color3& color) {
 	// TODO: Set the pixel to the new color
+	pixels[y * w + x] = color;
 }
 
 bool Image3::savePPM(const std::string& path) const {
