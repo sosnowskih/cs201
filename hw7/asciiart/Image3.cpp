@@ -4,6 +4,8 @@
 // CS 201 course
 
 #include <fstream>
+#include <vector>
+#include <string>
 #include "Image3.hpp"
 
 // Image3 Constructor
@@ -12,7 +14,7 @@ Image3::Image3(unsigned width, unsigned height) {
 	// TODO: initialize the internal w and h members
 	w = width;
 	h = height;
-	pixels.resize(w * w + h);
+	pixels.resize(w * h);
 }
 
 // Return a pixel from the image
@@ -23,7 +25,7 @@ const Color3& Image3::getPixel(unsigned x, unsigned y) const {
 	// Hint: maybe this is already in the class?
 
 	if ((y * w + x) < pixels.size()) return pixels[0];
-	else if ((y * w + x) > pixels.size()) return pixels[w*w+h];
+	else if ((y * w + x) > pixels.size()) return pixels[(w*h)-1];
 	else return pixels[y * w + x];
 }
 
@@ -42,7 +44,7 @@ bool Image3::savePPM(const std::string& path) const {
 	fout << "P3\n" << w << " " << h << "\n" << "255\n";
 	for (auto i : pixels)
 	{
-		fout << i.r << " " << i.g << " " << i.b << "\n";
+		fout << (int)i.r << " " << (int)i.g << " " << (int)i.b << "\n";
 	}
 	fout << std::endl;
 	return true;
@@ -59,30 +61,30 @@ bool Image3::loadPPM(const std::string& path) {
 
 	fin >> type >> w >> h >> maxColor;
 
-	unsigned int xx = 1;
-	unsigned int yy = 1;
+	int xx = 0;
+	int yy = 0;
 	while(true)
 	{
-		int r, g, b;
-		fin >> r >> g >> b;
-		setPixel(xx, yy, Color3(r, g, b));
+		int r, b, g;
+		fin >> r >> b >> g;
+		setPixel(xx, yy, Color3(r, b, g));
 
-		if (xx == w) {
+		if (xx >= w) {
 			xx = 0;
 			yy++;
 		}
-		else xx++;
-		if (w == xx & h == yy) return true;
+		xx++;
+		if (yy == h & xx == w) return true;
 	}
 }
 
 void Image3::printASCII(std::ostream& ostr) const {
 	// TODO: Print an ASCII version of this image
-
-	for (int i = 0; i < pixels.size(); i++) {
-		for (int y = 0; y < h; y++) {
-			for (int x = 0; x < w; x++) {
-				std::cout << pixels[i].asciiValue();
+	int i = 0;
+	while (i < pixels.size()) {
+		for (int yy = 0; yy < h; yy++) {
+			for (int xx = 0; xx < w; xx++) {
+				std::cout << pixels[yy*w+xx].asciiValue();
 				i++;
 			}
 			std::cout << std::endl;
@@ -92,14 +94,16 @@ void Image3::printASCII(std::ostream& ostr) const {
 
 // STREAM OPERATORS for IMAGE3 class
 
-std::ostream& operator<<(std::ostream& ostr, const Image3& image) {
+//std::ostream& operator<<(std::ostream& ostr, const Image3& image) {
 	// TODO: Write out PPM image format to stream
 	// ASSUME FORMAT WILL BE GOOD
-	return ostr;
-}
+	//ostr << 
 
-std::istream& operator>>(std::istream& istr, Image3& image) {
+//	return ostr;
+//}
+
+//std::istream& operator>>(std::istream& istr, Image3& image) {
 	// TODO: Read in PPM image format from stream
 	// MAKE SURE FORMAT IS GOOD!!!
-	return istr;
-}
+//	return istr;
+//}

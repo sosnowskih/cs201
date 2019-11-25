@@ -50,13 +50,15 @@ std::ostream& operator<<(std::ostream& ostr, const Color3& color) {
 	return ostr;
 }
 
-std::istream& operator>>(std::istream& istr, Color3& color) {
-	// Implement your own input for a Color3
-	int rr, gg, bb;
-	istr >> rr, gg, bb;
-	color.r = (unsigned char)rr;
-	color.g = (unsigned char)gg;
-	color.b = (unsigned char)bb;
-
-	return istr;
-}
+//std::istream& operator>>(std::istream& istr, Color3& color) {
+//	// Implement your own input for a Color3
+//	int rr = 0;
+//	int gg = 0;
+//	int bb = 0;
+//	istr >> rr, gg, bb;
+//	color.r = rr;
+//	color.g = gg;
+//	color.b = bb;
+//
+//	return istr;
+//}
