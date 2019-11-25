@@ -23,22 +23,21 @@ int main() {
 		string line = "";
 		string output = "";
 		getline(cin, line);
-		if (line == "end") break;
+		if (line.empty()) break;
 
 		cout << "Enter an integer to use as a shift: ";
 		int shift = 0;
-		string shiftline;
-		getline(cin, shiftline);
-		std::istringstream instream(shiftline);
-		instream >> shift;
-		while (!instream)
-		{
-			cout << "Error: Please enter an integer: ";
+
+		while(true)
+		{ 
+			string shiftline;
 			getline(cin, shiftline);
 			std::istringstream instream(shiftline);
 			instream >> shift;
+			
+			if (!instream) cout << "Error: Please enter an integer to use as a shift: ";
+			if (instream) break;
 		}
-
 
 		shift = shift % 26;
 
