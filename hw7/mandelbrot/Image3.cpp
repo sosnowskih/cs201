@@ -43,14 +43,6 @@ bool Image3::savePPM(const std::string& path) const {
 
 	fout << *this;
 	return true;
-
-	/*fout << "P3\n" << w << " " << h << "\n" << "255\n";
-	for (auto i : pixels)
-	{
-		fout << (int)i.r << " " << (int)i.g << " " << (int)i.b << "\n";
-	}
-	fout << std::endl;
-	return true;*/
 }
 
 bool Image3::loadPPM(const std::string& path) {
@@ -62,27 +54,6 @@ bool Image3::loadPPM(const std::string& path) {
 
 	fin >> *this;
 	return true;
-
-	//std::string type, maxColor;
-
-	//fin >> type >> w >> h >> maxColor;
-
-	//int xx = 0;
-	//int yy = 0;
-	//while(true)
-	//{
-	//	int r, b, g;
-	//	fin >> r >> b >> g;
-	//	setPixel(xx, yy, Color3(r, b, g));
-
-	//	if (xx >= w) {
-	//		xx = 0;
-	//		yy++;
-	//	}
-	//	xx++;
-	//	if (yy == h & xx == w) 
-	//		return true;
-	//}
 }
 
 void Image3::printASCII(std::ostream& ostr) const {
