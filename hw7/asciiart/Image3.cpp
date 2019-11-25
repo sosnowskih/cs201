@@ -80,15 +80,11 @@ bool Image3::loadPPM(const std::string& path) {
 
 void Image3::printASCII(std::ostream& ostr) const {
 	// TODO: Print an ASCII version of this image
-	int i = 0;
-	while (i < pixels.size()) {
-		for (int yy = 0; yy < h; yy++) {
-			for (int xx = 0; xx < w; xx++) {
-				std::cout << pixels[yy*w+xx].asciiValue();
-				i++;
-			}
-			std::cout << std::endl;
+	for (int yy = 0; yy < h; yy++) {
+		for (int xx = 0; xx < w; xx++) {
+			std::cout << pixels[yy*w+xx].asciiValue();
 		}
+		std::cout << std::endl;
 	}
 }
 
