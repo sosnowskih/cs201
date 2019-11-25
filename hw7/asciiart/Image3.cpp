@@ -41,13 +41,16 @@ bool Image3::savePPM(const std::string& path) const {
 	std::ofstream fout(path);
 	if (!fout) return false;
 
-	fout << "P3\n" << w << " " << h << "\n" << "255\n";
+	fout << *this;
+	return true;
+
+	/*fout << "P3\n" << w << " " << h << "\n" << "255\n";
 	for (auto i : pixels)
 	{
 		fout << (int)i.r << " " << (int)i.g << " " << (int)i.b << "\n";
 	}
 	fout << std::endl;
-	return true;
+	return true;*/
 }
 
 bool Image3::loadPPM(const std::string& path) {
@@ -97,8 +100,12 @@ void Image3::printASCII(std::ostream& ostr) const {
 std::ostream& operator<<(std::ostream& ostr, const Image3& image) {
 	 //TODO: Write out PPM image format to stream
 	 //ASSUME FORMAT WILL BE GOOD
-	//ostr <<  
-
+	ostr << "P3\n" << image.w << " " << image.h << "\n" << "255\n";
+	for (auto i : image.pixels)
+	{
+		ostr << (int)i.r << " " << (int)i.g << " " << (int)i.b << "\n";
+	}
+	ostr << std::endl;
 	return ostr;
 }
 
