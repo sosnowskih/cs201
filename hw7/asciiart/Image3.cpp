@@ -57,25 +57,29 @@ bool Image3::loadPPM(const std::string& path) {
 	std::ifstream fin(path);
 	if (!fin) return false;
 
-	std::string type, maxColor;
+	fin >> *this;
+	return true;
 
-	fin >> type >> w >> h >> maxColor;
+	//std::string type, maxColor;
 
-	int xx = 0;
-	int yy = 0;
-	while(true)
-	{
-		int r, b, g;
-		fin >> r >> b >> g;
-		setPixel(xx, yy, Color3(r, b, g));
+	//fin >> type >> w >> h >> maxColor;
 
-		if (xx >= w) {
-			xx = 0;
-			yy++;
-		}
-		xx++;
-		if (yy == h & xx == w) return true;
-	}
+	//int xx = 0;
+	//int yy = 0;
+	//while(true)
+	//{
+	//	int r, b, g;
+	//	fin >> r >> b >> g;
+	//	setPixel(xx, yy, Color3(r, b, g));
+
+	//	if (xx >= w) {
+	//		xx = 0;
+	//		yy++;
+	//	}
+	//	xx++;
+	//	if (yy == h & xx == w) 
+	//		return true;
+	//}
 }
 
 void Image3::printASCII(std::ostream& ostr) const {
@@ -90,16 +94,35 @@ void Image3::printASCII(std::ostream& ostr) const {
 
 // STREAM OPERATORS for IMAGE3 class
 
-//std::ostream& operator<<(std::ostream& ostr, const Image3& image) {
-	// TODO: Write out PPM image format to stream
-	// ASSUME FORMAT WILL BE GOOD
-	//ostr << 
+std::ostream& operator<<(std::ostream& ostr, const Image3& image) {
+	 //TODO: Write out PPM image format to stream
+	 //ASSUME FORMAT WILL BE GOOD
+	//ostr <<  
 
-//	return ostr;
-//}
+	return ostr;
+}
 
-//std::istream& operator>>(std::istream& istr, Image3& image) {
-	// TODO: Read in PPM image format from stream
-	// MAKE SURE FORMAT IS GOOD!!!
-//	return istr;
-//}
+std::istream& operator>>(std::istream& istr, Image3& image) {
+	 //TODO: Read in PPM image format from stream
+	 //MAKE SURE FORMAT IS GOOD!!!
+
+	std::string type, maxColor;
+
+	istr >> type >> image.w >> image.h >> maxColor;
+
+	int xx = 0;
+	int yy = 0;
+	while (true)
+	{
+		int r, b, g;
+		istr >> r >> b >> g;
+		image.setPixel(xx, yy, Color3(r, b, g));
+
+		if (xx >= image.w) {
+			xx = 0;
+			yy++;
+		}
+		xx++;
+		if (yy == image.h & xx == image.w) return istr;
+	}
+}
