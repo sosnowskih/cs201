@@ -9,10 +9,14 @@ void Environment::iteration() {
 	}
 }
 
-int Environment::getHeat() {
+int Environment::getTemp() {
 	return _temp;
 }
 
-void Environment::setHeat(int t) {
+void Environment::setTemp(int t) {
 	_temp = t;
+}
+
+void Environment::setHeater(bool h) {
+	_heater = h;
 }

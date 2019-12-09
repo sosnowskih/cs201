@@ -10,9 +10,11 @@ public:
 	//member functions
 	void iteration();
 
-	int getHeat();
+	int getTemp();
 
-	void setHeat(int t);
+	void setTemp(int t);
+
+	void setHeater(bool h);
 
 
 //data members
