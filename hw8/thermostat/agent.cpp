@@ -17,3 +17,7 @@ bool Agent::think() {
 	if (_current < _target) _heater = true;
 	else _heater = false;
 }
+
+void Agent::act(Environment e) {
+	e.setHeater(_heater);
+}

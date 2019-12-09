@@ -16,6 +16,7 @@ public:
 
 	bool think();
 
+	void act(Environment e);
 
 	//member data
 private:
