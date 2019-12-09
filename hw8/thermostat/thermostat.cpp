@@ -11,8 +11,8 @@ using std::cin;
 using std::endl;
 
 int main() {
-
-
+	Simulator sim;
+	sim.run();
 
 	return 0;
 }

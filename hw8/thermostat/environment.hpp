@@ -3,9 +3,12 @@
 
 class Environment {
 public:
-	//constructor
+	//constructors
+	Environment() : _temp{ 60 }, _heater{ false }{}
+
 	Environment(int t, bool h) :
 		_temp{ t }, _heater{ h }{}
+
 
 	//member functions
 	void iteration();
@@ -19,8 +22,8 @@ public:
 
 //data members
 private:
-	int _temp = 0;
-	bool _heater = false;
+	int _temp;
+	bool _heater;
 
 };
 

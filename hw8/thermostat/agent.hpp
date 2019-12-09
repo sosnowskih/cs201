@@ -5,12 +5,14 @@
 
 class Agent {
 public:
-	//constructor
+	//constructors
+	Agent() : _target{ 0 }, _current{ 0 }, _heater{ false } {}
 
+	Agent(bool t) : _target{ t }, _current{ 0 }, _heater{ false } {}
 
 
 	//member functions
-	void setTarget(int t);
+	void setTarget(Simulator s);
 
 	void perceive(Environment e);
 
@@ -20,9 +22,9 @@ public:
 
 	//member data
 private:
-	int _target = 0;
-	int _current = 0;
-	bool _heater = false;
+	int _target;
+	int _current;
+	bool _heater;
 
 };
 

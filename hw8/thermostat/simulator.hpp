@@ -14,7 +14,7 @@ public:
 
 	int getTarget();
 
-
+	void run();
 
 	//member data
 private:
