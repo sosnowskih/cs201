@@ -5,6 +5,10 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+void Agent::setTarget(int t) {
+	_target = t;
+}
+
 void Agent::perceive(Environment e) {
 	_current = e.getTemp;
 }

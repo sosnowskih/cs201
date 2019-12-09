@@ -5,8 +5,13 @@
 
 class Agent {
 public:
+	//constructor
+
+
 
 	//member functions
+	void setTarget(int t);
+
 	void perceive(Environment e);
 
 	bool think();
