@@ -8,3 +8,8 @@ using std::endl;
 void Agent::perceive(Environment e) {
 	_current = e.getTemp;
 }
+
+bool Agent::think() {
+	if (_current < _target) _heater = true;
+	else _heater = false;
+}
