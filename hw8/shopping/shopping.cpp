@@ -1,7 +1,7 @@
 //Program: shopping.cpp
 //Author: Henryk Sosnowski
 //Date: 12/8/2019
-//Description:
+//Description: This program simulates a grocery store by displaying a menu and letting the user add or remove items and view their cart.
 
 
 #include <iostream>
@@ -17,6 +17,7 @@ using std::string;
 using std::map;
 using std::pair;
 using std::make_pair;
+
 
 struct Record {
 	double unitPrice;
@@ -44,7 +45,7 @@ int main() {
 		cout  << "6. View Cart\n"
 			<< "Select an option (0 to quit): ";
 
-		int input;
+		int input, count;
 		cin >> input;
 
 		//Quit option
@@ -55,17 +56,16 @@ int main() {
 		//Adding item option
 		else if (input < 6) {
 			cout << "How much would you like to add? ";
-			int count;
 			cin >> count;
-			c[items[input].first].units += count;
+			c[items[input-1].first].units += count;
 		}
 
 		//Cart option
 		else if (input == 6) {
-			cout << "Your cart:\n";
+			cout << "\nYour cart:\n";
 			for (int i = 0; i < 5; i++) {
 				if (c[items[i].first].units != 0) {
-					cout << items[i].first << " x" << c[items[i].first].units << "\n";
+					cout << i + 1 << ". " << items[i].first << " x" << c[items[i].first].units << "\n";
 				}
 			}
 
@@ -75,14 +75,26 @@ int main() {
 				total += c[items[i].first].units * items[i].second;
 			}
 			cout << "Total: $" << total << endl;
+
+			//Cart menu options
+			cout << "1. Remove an item.\n"
+				<< "2. Go back.\n"
+				<< "Select an option: ";
+			cin >> input;
+			if (input == 1) {
+				cout << "Enter the number of the item you want removed: ";
+				cin >> input;
+				cout << "How many? ";
+				cin >> count;
+				c[items[input - 1].first].units -= count;
+			}
 		}
 
 		else {
 			cout << "Input error" << endl;
 		}
 		
-
-
+		cout << endl;
 	}
 
 	return 0;
