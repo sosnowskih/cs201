@@ -12,3 +12,7 @@ void Environment::iteration() {
 int Environment::getHeat() {
 	return _temp;
 }
+
+void Environment::setHeat(int t) {
+	_temp = t;
+}

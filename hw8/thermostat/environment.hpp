@@ -12,6 +12,8 @@ public:
 
 	int getHeat();
 
+	void setHeat(int t);
+
 
 //data members
 private:
