@@ -11,8 +11,17 @@ using std::cin;
 using std::endl;
 
 int main() {
-	Simulator sim;
-	sim.run();
+	//Simulator sim;
+	//sim.run();
+
+	bool b = true;
+	Agent a;
+	Environment e;
+	e.iteration();
+	e.setHeater(b);
+	e.iteration();
+	a.act(e);
+	e.iteration();
 
 	return 0;
 }

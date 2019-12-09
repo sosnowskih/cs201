@@ -4,10 +4,10 @@
 class Environment {
 public:
 	//constructors
-	Environment() : _temp{ 60 }, _heater{ false }{}
+	//Environment() : _temp{ 65 }, _heater{ false }{}
 
-	Environment(int t, bool h) :
-		_temp{ t }, _heater{ h }{}
+	//Environment(int t) :
+	//	_temp{ t }{}
 
 
 	//member functions
@@ -22,8 +22,8 @@ public:
 
 //data members
 private:
-	int _temp;
-	bool _heater;
+	int _temp = 65;
+	bool _heater = false;
 
 };
 

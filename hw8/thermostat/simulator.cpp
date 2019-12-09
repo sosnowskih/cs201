@@ -18,7 +18,7 @@ int Simulator::getTarget() {
 
 
 void Simulator::run() {
-	Environment e(50, 1);
+	Environment e;
 
 	while (true) {
 		askOwner();
