@@ -8,13 +8,15 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <utility>
 
 using std::cout;
 using std::cin;
 using std::endl;
 using std::string;
 using std::map;
-
+using std::pair;
+using std::make_pair;
 
 struct Record {
 	double unitPrice;
@@ -25,18 +27,21 @@ struct Record {
 int main() {
 	cout << "This program simulates a grocery store." << endl;
 
-	map<string, Record> m;
-	std::vector<string> names {"Eggs", "Milk", "Break", "Grapes", "Salmon"};
+	map<string, Record> c;
+	std::vector<pair<string, int>> items {make_pair("Eggs", 5),
+			make_pair("Milk", 3),
+			make_pair("Bread", 4),
+			make_pair("Grapes", 2),
+			make_pair("Salmon", 10)
+	};
 
 	//Main menu loop
 	while (true) {
-		cout << "Items for sale:\n"
-			<< "1. Eggs - $5\n"
-			<< "2. Milk - $3\n"
-			<< "3. Bread - $4\n"
-			<< "4. Grapes - $2\n"
-			<< "5. Salmon - $10\n"
-			<< "6. View Cart\n"
+		cout << "Items for sale:\n";
+		for (int i = 0; i < 5; i++) {
+			cout << i + 1 << ". " << items[i].first << " - $" << items[i].second << endl;
+			}
+		cout  << "6. View Cart\n"
 			<< "Select an option (0 to quit): ";
 
 		int input;
@@ -52,15 +57,26 @@ int main() {
 			cout << "How much would you like to add? ";
 			int count;
 			cin >> count;
-			m[names[input]].units += count;
+			c[items[input].first].units += count;
 		}
 
 		//Cart option
 		else if (input == 6) {
 			cout << "Your cart:\n";
-				for (int i = 0; i < 5; i++) cout << names[i] << " x" << m[names[i]].units << "\n";
-				cout << "Total: $" << 
+			for (int i = 0; i < 5; i++) {
+				if (c[items[i].first].units != 0) {
+					cout << items[i].first << " x" << c[items[i].first].units << "\n";
+				}
+			}
+
+			//Calculating total
+			int total = 0;
+			for (int i = 0; i < 5; i++) {
+				total += c[items[i].first].units * items[i].second;
+			}
+			cout << "Total: $" << total << endl;
 		}
+
 		else {
 			cout << "Input error" << endl;
 		}
