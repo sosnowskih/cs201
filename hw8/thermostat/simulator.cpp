@@ -18,18 +18,19 @@ int Simulator::getTarget() {
 
 
 void Simulator::run() {
-	Environment e;
+	Environment e(50, 1);
 
 	while (true) {
 		askOwner();
-		if (_target = 0) break;
+		if (_target == 0) break;
 		Agent a(_target);
 
 		for (int i = 0; i < 10; i++) {
-			e.iteration;
 			a.perceive(e);
-			a.think;
-			a.act;
+			a.think();
+			a.act(e);
+			e.iteration();
+			cout << endl;
 		}
 	}
 }

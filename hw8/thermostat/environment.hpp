@@ -15,9 +15,9 @@ public:
 
 	int getTemp();
 
-	void setTemp(int t);
+	void setTemp(int te);
 
-	void setHeater(bool h);
+	void setHeater(bool he);
 
 
 //data members

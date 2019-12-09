@@ -1,22 +1,21 @@
 #ifndef AGENT_HPP
 #define AGENT_HPP
 
-#include "thermostat.hpp"
+#include "environment.hpp"
+#include "simulator.hpp"
 
 class Agent {
 public:
 	//constructors
-	Agent() : _target{ 0 }, _current{ 0 }, _heater{ false } {}
+	Agent() : _target{ 0 }, _current{ 0 }, _heat{ false } {}
 
-	Agent(bool t) : _target{ t }, _current{ 0 }, _heater{ false } {}
+	Agent(int t) : _target{ t }, _current{ 0 }, _heat{ false } {}
 
 
 	//member functions
-	void setTarget(Simulator s);
-
 	void perceive(Environment e);
 
-	bool think();
+	void think();
 
 	void act(Environment e);
 
@@ -24,7 +23,7 @@ public:
 private:
 	int _target;
 	int _current;
-	bool _heater;
+	bool _heat;
 
 };
 

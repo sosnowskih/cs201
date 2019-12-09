@@ -5,23 +5,25 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-void Agent::setTarget(Simulator s) {
-	_target = s.getTarget();
-	cout << "The agent has set the target temperature." << endl;
-}
 
 void Agent::perceive(Environment e) {
-	_current = e.getTemp;
-	cout << "The agent has perceived the current temperature." << endl;
+	_current = e.getTemp();
+	cout << "The agent has perceived the current temperature: " << _current  << " Target: " << _target << endl;
 }
 
-bool Agent::think() {
-	if (_current < _target) _heater = true;
-	else _heater = false;
-	cout << "The agent has decided an action." << endl;
+void Agent::think() {
+	if (_current < _target) {
+		_heat = true;
+		cout << "The agent decided to turn on the heater: " << _heat << endl;
+	}
+	else if (_current > _target) {
+		_heat = false;
+		cout << "The agent decided to turn off the heater: " << _heat << endl;
+	}
+	else cout << "The agent did not change the heater." << _heat << endl;
 }
 
 void Agent::act(Environment e) {
-	e.setHeater(_heater);
-	cout << "The agent has changed the environment's heater state." << endl;
+	e.setHeater(_heat);
+	//cout << "The agent has changed the environment's heater state: " << _heat << endl;
 }

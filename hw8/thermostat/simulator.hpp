@@ -5,8 +5,10 @@
 
 class Simulator {
 public:
-	//constructor
+	//constructors
+	Simulator() : _target{ 0 } {}
 
+	Simulator(int t) : _target{ t } {}
 
 
 	//member functions
@@ -18,7 +20,7 @@ public:
 
 	//member data
 private:
-	int _target = 0;
+	int _target;
 
 };
 
