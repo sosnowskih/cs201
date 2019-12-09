@@ -16,12 +16,23 @@ using std::cout;
 using std::endl;
 using std::string;
 using std::vector;
+using std::map;
+
+
+//Removes keys of words on the stop-words list
+void stopWords( map<string, int> & m) {
+	m.erase("a");
+	m.erase("and");
+	m.erase("or");
+	m.erase("to");
+	m.erase("the");
+}
 
 
 int main() {
 	std::ifstream fin("98.txt");
 
-	std::map <string, int> m;
+	map <string, int> m;
 
 
 	while (true) {
@@ -52,6 +63,9 @@ int main() {
 		else {
 			m[sl] += 1;
 		}
+
+		//Filters the stop-words
+		stopWords(m);
 
 		//Creates a vector of the word counts
 		vector<int> counts;
