@@ -28,6 +28,18 @@ void stopWords( map<string, int> & m) {
 	m.erase("the");
 }
 
+//Searches for a key by its value
+string searchKey(int value, map<string, int> m) {
+	string key;
+	for (auto i : m) {
+		if (i.second == value) {
+			key = i.first;
+			break;
+		}
+	}
+	return key;
+}
+
 
 int main() {
 	std::ifstream fin("98.txt");
@@ -77,7 +89,10 @@ int main() {
 		std::sort(counts.begin(), counts.end());
 
 		//Uses the twenty highest counts of the vector to find the words in the map and prints them
-
+		cout << "The twenty most used words in 'A tale of Two Cities' are:" << endl;
+		for (int i = 0; i < 20; i++) {
+			cout << i+1 << ". " << searchKey(counts[i], m) << " (" << counts[i] << ")" << endl;
+		}
 
 	}
 
