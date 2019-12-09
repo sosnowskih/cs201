@@ -8,3 +8,7 @@ void Environment::iteration() {
 		_temp -= 1;
 	}
 }
+
+int Environment::getHeat() {
+	return _temp;
+}

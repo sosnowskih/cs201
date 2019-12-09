@@ -10,6 +10,8 @@ public:
 	//member functions
 	void iteration();
 
+	int getHeat();
+
 
 //data members
 private:
