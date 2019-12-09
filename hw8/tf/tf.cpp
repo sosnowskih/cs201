@@ -1,7 +1,7 @@
 //Program: tf.cpp
 //Author: Henryk Sosnowski
 //Date: 12/8/2019
-//Description:
+//Description:  This program counts the usage of every word in A Tale of Two Cities and prints the top twenty, omitting some uninteresting ones.
 
 
 #include <iostream>
@@ -26,6 +26,20 @@ void stopWords( map<string, int> & m) {
 	m.erase("or");
 	m.erase("to");
 	m.erase("the");
+	m.erase("of");
+	m.erase("in");
+	m.erase("as");
+	m.erase("at");
+	m.erase("on");
+	m.erase("is");
+	m.erase("be");
+	m.erase("not");
+	m.erase("that");
+	m.erase("his");
+	m.erase("he");
+	m.erase("her");
+	m.erase("from");
+	m.erase("but");
 }
 
 //Searches for a key by its value
@@ -76,26 +90,27 @@ int main() {
 			m[sl] += 1;
 		}
 
-		//Filters the stop-words
-		stopWords(m);
-
-		//Creates a vector of the word counts
-		vector<int> counts;
-		for (const auto &p : m) {
-			counts.push_back(p.second);
-		}
-
-		//Sorts the vector in order of word count
-		std::sort(counts.begin(), counts.end());
-
-		//Uses the twenty highest counts of the vector to find the words in the map and prints them
-		cout << "The twenty most used words in 'A tale of Two Cities' are:" << endl;
-		for (int i = 0; i < 20; i++) {
-			cout << i+1 << ". " << searchKey(counts[i], m) << " (" << counts[i] << ")" << endl;
-		}
-
 	}
 
+	//Filters the stop-words
+	stopWords(m);
+
+	//Creates a vector of the word counts
+	vector<int> counts;
+	for (auto i: m) {
+		counts.push_back(i.second);
+	}
+
+	//Sorts the vector in order of word count
+	std::sort(counts.begin(), counts.end(), [](int a, int b) {
+		return a > b; 
+		});
+
+	//Uses the twenty highest counts of the vector to find the words in the map and prints them
+	cout << "The twenty most used words in 'A tale of Two Cities' are:" << endl;
+	for (int i = 0; i < 20; i++) {
+		cout << i + 1 << ". " << searchKey(counts[i], m) << " (" << counts[i] << ")" << endl;
+	}
 
 	return 0;
 }
