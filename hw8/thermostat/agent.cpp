@@ -4,3 +4,7 @@
 using std::cout;
 using std::cin;
 using std::endl;
+
+void Agent::perceive(Environment e) {
+	_current = e.getTemp;
+}
