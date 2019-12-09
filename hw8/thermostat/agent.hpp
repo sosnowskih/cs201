@@ -19,6 +19,8 @@ public:
 
 	void act(Environment e);
 
+	void setTarget(int t);
+
 	//member data
 private:
 	int _target;

@@ -19,11 +19,12 @@ int Simulator::getTarget() {
 
 void Simulator::run() {
 	Environment e;
+	Agent a;
 
 	while (true) {
 		askOwner();
 		if (_target == 0) break;
-		Agent a(_target);
+		a.setTarget(_target);
 
 		for (int i = 0; i < 10; i++) {
 			a.perceive(e);
