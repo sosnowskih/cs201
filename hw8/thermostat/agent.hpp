@@ -21,6 +21,8 @@ public:
 
 	void setTarget(int t);
 
+	bool getHeat();
+
 	//member data
 private:
 	int _target;

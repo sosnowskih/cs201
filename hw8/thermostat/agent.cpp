@@ -34,3 +34,8 @@ void Agent::act(Environment e) {
 void Agent::setTarget(int t) {
 	_target = t;
 }
+
+//Returns the boolean value of _heat
+bool Agent::getHeat() {
+	return _heat;
+}
