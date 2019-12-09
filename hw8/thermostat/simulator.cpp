@@ -10,3 +10,8 @@ void Simulator::askOwner() {
 	cout << "Please enter your desired temperature: ";
 	cin >> _target;
 }
+
+
+int Simulator::getTarget() {
+	return _target;
+}

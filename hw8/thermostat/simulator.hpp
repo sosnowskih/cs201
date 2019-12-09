@@ -12,6 +12,8 @@ public:
 	//member functions
 	void askOwner();
 
+	int getTarget();
+
 
 
 	//member data
